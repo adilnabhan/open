@@ -50,14 +50,20 @@ body{background:linear-gradient(135deg,#fff0fa 0%,#ffe8f5 40%,#f5f0ff 70%,#fff8f
 
 .sec-title{font-family:'Dancing Script',cursive;font-size:2.2rem;text-align:center;color:#e0559a;margin:2.5rem 0 1.2rem}
 
-.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:1rem 0;animation:floatUp 1s 0.4s ease both}
-.ph{overflow:hidden;border-radius:20px;border:2px solid rgba(255,150,200,0.3);position:relative;transition:transform 0.35s,border-color 0.35s,box-shadow 0.35s;cursor:pointer}
-.ph:hover{transform:scale(1.05) rotate(1deg);border-color:rgba(224,85,154,0.7);box-shadow:0 12px 40px rgba(224,85,154,0.2)}
-.ph img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block;transition:transform 0.4s}
-.ph:hover img{transform:scale(1.08)}
-.ph.tall{aspect-ratio:3/4}.ph.wide{grid-column:span 2}
-.ph-tag{position:absolute;bottom:0;left:0;right:0;padding:0.6rem;background:linear-gradient(to top,rgba(100,20,70,0.85),transparent);font-size:0.72rem;color:#ffd6f5;font-weight:500;opacity:0;transition:opacity 0.3s;letter-spacing:0.05em;text-align:center}
-.ph:hover .ph-tag{opacity:1}
+.gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin:1.5rem 0;animation:floatUp 1s 0.4s ease both}
+.ph{position:relative;cursor:pointer;background:linear-gradient(145deg,#fff8fc,#fff0f8,#f8f0ff);border-radius:18px;padding:10px;box-shadow:0 4px 20px rgba(224,85,154,0.12),inset 0 1px 0 rgba(255,255,255,0.9);border:2px solid rgba(255,180,220,0.45);transition:transform 0.4s cubic-bezier(0.175,0.885,0.32,1.275),box-shadow 0.4s}
+.ph:hover{transform:translateY(-8px) rotate(0.5deg);box-shadow:0 16px 48px rgba(224,85,154,0.22),inset 0 1px 0 rgba(255,255,255,0.9)}
+.ph::before,.ph::after{content:'✿';position:absolute;font-size:0.85rem;opacity:0.35;color:#e0559a;transition:opacity 0.3s}
+.ph::before{top:2px;left:6px}.ph::after{bottom:2px;right:6px}
+.ph:hover::before,.ph:hover::after{opacity:0.7}
+.ph-img-wrap{overflow:hidden;border-radius:12px;position:relative;border:1.5px solid rgba(255,150,200,0.25);aspect-ratio:3/4}
+.ph.wide .ph-img-wrap{aspect-ratio:16/9}
+.ph.featured{grid-column:span 2}
+.ph.featured .ph-img-wrap{aspect-ratio:16/9}
+.ph img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block;transition:transform 0.5s cubic-bezier(0.175,0.885,0.32,1.275)}
+.ph:hover img{transform:scale(1.06)}
+.ph-tag{text-align:center;padding:6px 0 2px;font-size:0.75rem;color:#b06090;font-weight:600;letter-spacing:0.08em;font-family:'Dancing Script',cursive;font-size:0.95rem;opacity:0.8;transition:opacity 0.3s,color 0.3s}
+.ph:hover .ph-tag{opacity:1;color:#e0559a}
 
 /* CAKE SECTION */
 .cake-section{text-align:center;margin:3rem 0;animation:floatUp 1s 0.5s ease both}
@@ -78,12 +84,13 @@ body{background:linear-gradient(135deg,#fff0fa 0%,#ffe8f5 40%,#f5f0ff 70%,#fff8f
 .bw-svg{flex-shrink:0;width:54px;height:46px}
 .bw-text{font-size:0.88rem;color:#6a2a4e;line-height:1.7;padding-top:4px}
 
-.memory-strip{display:flex;gap:10px;overflow-x:auto;padding:0.5rem 0 1rem;margin:1rem 0;scrollbar-width:none;animation:floatUp 1s 0.7s ease both}
+.memory-strip{display:flex;gap:18px;overflow-x:auto;padding:0.8rem 0.5rem 1.2rem;margin:1rem 0;scrollbar-width:none;animation:floatUp 1s 0.7s ease both}
 .memory-strip::-webkit-scrollbar{display:none}
-.mem-item{flex-shrink:0;width:120px;height:160px;border-radius:16px;overflow:hidden;border:2px solid rgba(255,150,200,0.4);position:relative;transition:transform 0.3s}
-.mem-item:hover{transform:scale(1.06) rotate(-1deg)}
+.mem-item{flex-shrink:0;width:130px;border-radius:14px;background:linear-gradient(145deg,#fff8fc,#fff0f8);padding:8px;box-shadow:0 4px 16px rgba(224,85,154,0.1);border:1.5px solid rgba(255,180,220,0.4);position:relative;transition:transform 0.35s cubic-bezier(0.175,0.885,0.32,1.275),box-shadow 0.35s}
+.mem-item:hover{transform:scale(1.06) rotate(-1.5deg);box-shadow:0 10px 30px rgba(224,85,154,0.18)}
+.mem-item-inner{width:100%;height:155px;border-radius:10px;overflow:hidden;border:1px solid rgba(255,150,200,0.2)}
 .mem-item img{width:100%;height:100%;object-fit:cover;object-position:top center}
-.mem-num{position:absolute;bottom:6px;right:8px;font-family:'Dancing Script',cursive;font-size:0.9rem;color:#ffd6f5;background:rgba(120,20,80,0.6);padding:2px 8px;border-radius:99px}
+.mem-num{text-align:center;font-family:'Dancing Script',cursive;font-size:0.85rem;color:#c06090;padding-top:5px}
 
 .game-wrap{margin:2.5rem 0;animation:floatUp 1s 0.8s ease both}
 .game-inner{background:rgba(255,255,255,0.65);border:2px solid rgba(255,150,200,0.4);border-radius:28px;padding:2rem;text-align:center;backdrop-filter:blur(10px)}
@@ -130,16 +137,16 @@ body{background:linear-gradient(135deg,#fff0fa 0%,#ffe8f5 40%,#f5f0ff 70%,#fff8f
 
   <div class="sec-title">✿ Beautiful Moments ✿</div>
   <div class="gallery">
-    <div class="ph wide" style="aspect-ratio:16/9"><img src="images/WhatsApp_Image_2026-05-03_at_5_24_20_PM.jpeg" alt="Hasna"><div class="ph-tag">Always glowing ✿</div></div>
-    <div class="ph tall"><img src="images/WhatsApp_Image_2026-05-03_at_5_24_43_PM__4_.jpeg" alt="Hasna"><div class="ph-tag">Radiant smile ✿</div></div>
-    <div class="ph tall"><img src="images/WhatsApp_Image_2026-05-03_at_5_24_43_PM__5_.jpeg" alt="Hasna"><div class="ph-tag">Pure joy ✿</div></div>
-    <div class="ph tall"><img src="images/WhatsApp_Image_2026-05-03_at_5_24_44_PM__2_.jpeg" alt="Hasna"><div class="ph-tag">Festive queen ✿</div></div>
-    <div class="ph tall"><img src="images/WhatsApp_Image_2026-05-03_at_5_24_43_PM__7_.jpeg" alt="friends"><div class="ph-tag">Friends forever ✿</div></div>
-    <div class="ph tall"><img src="images/WhatsApp_Image_2026-05-03_at_5_24_44_PM__3_.jpeg" alt="Hasna"><div class="ph-tag">Office charm ✿</div></div>
-    <div class="ph wide" style="aspect-ratio:16/7"><img src="images/WhatsApp_Image_2026-05-03_at_5_24_23_PM.jpeg" alt="Group"><div class="ph-tag">Squad forever ✿</div></div>
-    <div class="ph tall"><img src="images/WhatsApp_Image_2026-05-03_at_5_24_43_PM__6_.jpeg" alt="friends"><div class="ph-tag">Best friends ✿</div></div>
-    <div class="ph tall"><img src="images/WhatsApp_Image_2026-05-03_at_5_24_44_PM.jpeg" alt="winter"><div class="ph-tag">Winter magic ✿</div></div>
-    <div class="ph tall"><img src="images/WhatsApp_Image_2026-05-03_at_5_24_44_PM__1_.jpeg" alt="selfie"><div class="ph-tag">Mountain memories ✿</div></div>
+    <div class="ph"><div class="ph-img-wrap"><img src="images/WhatsApp_Image_2026-05-03_at_5_24_43_PM__4_.jpeg" alt="Hasna"></div><div class="ph-tag">Radiant smile ✿</div></div>
+    <div class="ph"><div class="ph-img-wrap"><img src="images/WhatsApp_Image_2026-05-03_at_5_24_43_PM__5_.jpeg" alt="Hasna"></div><div class="ph-tag">Pure joy ✿</div></div>
+    <div class="ph"><div class="ph-img-wrap"><img src="images/WhatsApp_Image_2026-05-03_at_5_24_44_PM__2_.jpeg" alt="Hasna"></div><div class="ph-tag">Festive queen ✿</div></div>
+    <div class="ph"><div class="ph-img-wrap"><img src="images/WhatsApp_Image_2026-05-03_at_5_24_44_PM__3_.jpeg" alt="Hasna"></div><div class="ph-tag">Office charm ✿</div></div>
+    <div class="ph featured"><div class="ph-img-wrap"><img src="images/WhatsApp_Image_2026-05-03_at_5_24_43_PM__7_.jpeg" alt="friends" style="object-position:center 30%"></div><div class="ph-tag">Friends forever ✿</div></div>
+    <div class="ph"><div class="ph-img-wrap"><img src="images/WhatsApp_Image_2026-05-03_at_5_24_43_PM__6_.jpeg" alt="friends"></div><div class="ph-tag">Best friends ✿</div></div>
+    <div class="ph"><div class="ph-img-wrap"><img src="images/WhatsApp_Image_2026-05-03_at_5_24_20_PM.jpeg" alt="Hasna"></div><div class="ph-tag">Always glowing ✿</div></div>
+    <div class="ph featured"><div class="ph-img-wrap"><img src="images/WhatsApp_Image_2026-05-03_at_5_24_23_PM.jpeg" alt="Group" style="object-position:center 25%"></div><div class="ph-tag">Squad forever ✿</div></div>
+    <div class="ph"><div class="ph-img-wrap"><img src="images/WhatsApp_Image_2026-05-03_at_5_24_44_PM.jpeg" alt="winter"></div><div class="ph-tag">Winter magic ✿</div></div>
+    <div class="ph"><div class="ph-img-wrap"><img src="images/WhatsApp_Image_2026-05-03_at_5_24_44_PM__1_.jpeg" alt="selfie"></div><div class="ph-tag">Mountain memories ✿</div></div>
   </div>
 
   <div class="sec-title">🎂 Cut the Cake! 🎂</div>
@@ -210,12 +217,12 @@ body{background:linear-gradient(135deg,#fff0fa 0%,#ffe8f5 40%,#f5f0ff 70%,#fff8f
 
   <div class="sec-title">🌸 Memory Lane 🌸</div>
   <div class="memory-strip">
-    <div class="mem-item"><img src="images/WhatsApp_Image_2026-05-03_at_5_24_43_PM__6_.jpeg" alt=""><div class="mem-num">01</div></div>
-    <div class="mem-item"><img src="images/WhatsApp_Image_2026-05-03_at_5_24_43_PM__7_.jpeg" alt=""><div class="mem-num">02</div></div>
-    <div class="mem-item"><img src="images/WhatsApp_Image_2026-05-03_at_5_24_44_PM__4_.jpeg" alt=""><div class="mem-num">03</div></div>
-    <div class="mem-item"><img src="images/WhatsApp_Image_2026-05-03_at_5_24_43_PM.jpeg" alt=""><div class="mem-num">04</div></div>
-    <div class="mem-item"><img src="images/WhatsApp_Image_2026-05-03_at_5_24_44_PM__1_.jpeg" alt=""><div class="mem-num">05</div></div>
-    <div class="mem-item"><img src="images/WhatsApp_Image_2026-05-03_at_5_24_43_PM__3_.jpeg" alt=""><div class="mem-num">06</div></div>
+    <div class="mem-item"><div class="mem-item-inner"><img src="images/WhatsApp_Image_2026-05-03_at_5_24_43_PM__6_.jpeg" alt=""></div><div class="mem-num">01</div></div>
+    <div class="mem-item"><div class="mem-item-inner"><img src="images/WhatsApp_Image_2026-05-03_at_5_24_43_PM__7_.jpeg" alt=""></div><div class="mem-num">02</div></div>
+    <div class="mem-item"><div class="mem-item-inner"><img src="images/WhatsApp_Image_2026-05-03_at_5_24_44_PM__4_.jpeg" alt=""></div><div class="mem-num">03</div></div>
+    <div class="mem-item"><div class="mem-item-inner"><img src="images/WhatsApp_Image_2026-05-03_at_5_24_43_PM.jpeg" alt=""></div><div class="mem-num">04</div></div>
+    <div class="mem-item"><div class="mem-item-inner"><img src="images/WhatsApp_Image_2026-05-03_at_5_24_44_PM__1_.jpeg" alt=""></div><div class="mem-num">05</div></div>
+    <div class="mem-item"><div class="mem-item-inner"><img src="images/WhatsApp_Image_2026-05-03_at_5_24_43_PM__3_.jpeg" alt=""></div><div class="mem-num">06</div></div>
   </div>
 
   <div class="game-wrap">
